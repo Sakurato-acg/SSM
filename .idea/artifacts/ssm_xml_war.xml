@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ssm-xml:war">
+    <output-path>$PROJECT_DIR$/ssm-xml/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>ssm-xml</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="ssm-xml-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ssm-xml:war exploded" />
+    </root>
+  </artifact>
+</component>

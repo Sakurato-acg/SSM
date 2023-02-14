@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring_mvc_demo" />
+        <module name="spring_listener" />
+        <module name="spring_mvc_ajax" />
+        <module name="spring_mvc_annotation" />
+        <module name="spring_mvc_rest" />
+        <module name="spring-transaction" />
+        <module name="Spring-annotation" />
+        <module name="spring_mvc_extension" />
+        <module name="ssm-xml" />
+        <module name="mybatis_mbg" />
+        <module name="SSM-annotation" />
+        <module name="spring-aop" />
+        <module name="Spring-XML" />
+        <module name="Mybatis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="maven-mapper" target="16" />
+      <module name="maven-parent" target="16" />
+      <module name="maven-pojo" target="16" />
+      <module name="maven_01_parent" target="1.5" />
+      <module name="maven_02_ssm" target="1.5" />
+      <module name="maven_03_pojo" target="1.5" />
+      <module name="maven_04_dao" target="1.5" />
+      <module name="Maven高级" target="16" />
+      <module name="Mybatis" target="16" />
+      <module name="mybatis_mbg" target="8" />
+      <module name="Spring-annotation" target="16" />
+      <module name="spring-aop" target="6" />
+      <module name="spring-transaction" target="6" />
+      <module name="Spring-XML" target="16" />
+      <module name="spring_listener" target="1.5" />
+      <module name="spring_mvc_ajax" target="7" />
+      <module name="spring_mvc_annotation" target="6" />
+      <module name="spring_mvc_demo" target="1.5" />
+      <module name="spring_mvc_extension" target="6" />
+      <module name="spring_mvc_rest" target="16" />
+      <module name="SSM-annotation" target="8" />
+      <module name="SSM-annotation (1)" target="16" />
+      <module name="ssm-xml" target="16" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../Maven高级/maven-ssm" />
+    <file type="web" url="file://$PROJECT_DIR$/../Maven高级/maven_02_ssm" />
+    <file type="web" url="file://$PROJECT_DIR$/Mybatis" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-annotation" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-XML" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_listener" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_mvc_ajax" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_mvc_annotation" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_mvc_demo" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_mvc_extension" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_mvc_rest" />
+    <file type="web" url="file://$PROJECT_DIR$/SSM-annotation" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm-xml" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-XML/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-announce/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-aop/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-transaction/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mvc_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mvc_rest/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis_mbg/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mvc_annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mvc_extension/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_listener/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mvc_ajax/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm-xml/pom.xml" />
+        <option value="$PROJECT_DIR$/SSM-annotation/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="JavaSE-16" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

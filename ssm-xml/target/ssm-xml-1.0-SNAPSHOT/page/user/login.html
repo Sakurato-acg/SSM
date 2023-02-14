@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../../font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/container-fluid.css">
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/axios-0.18.0.js"></script>
+    <script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="../../js/user/login.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="head">
+        <div class="head-logo">
+            <img src="../../imgs/mikan-pic.png" alt="">
+            <img src="../../imgs/mikan-text.png" alt="">
+        </div>
+        <span class="head-menu font">
+            </span>
+        <div class="search-pc">
+            <form action="" method="post">
+                <i class="fa fa-search"></i>
+                <input type="text" name="searchname" class="searchname" placeholder="Search...">
+                <button type="submit" class="submit">搜索</button>
+            </form>
+        </div>
+        <div class="loginBtn" id="app">
+            <div v-if="username == null">
+                <button><a href="login.html" style="color: white;">登录</a></button>
+            </div>
+            <div v-else-if="username!= null">
+                <p>{{username}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="topnav">
+        <ul class="topnav-ul">
+            <li class="topnav-li">
+                <a href="../../index.html" class="a-active">
+                    <i class="fa fa-home"></i>
+                    <p>首页</p>
+                </a>
+            </li>
+            <li class="topnav-li show-menu">
+                <a href="" class="topnav-li-a">
+                    <i class="fa fa-th"></i>
+                    <p>分类</p>
+                </a>
+                <i class="fa fa-angle-double-down"
+                   style="margin-left: 1.25rem;float: right;color: rgba(255, 255, 255, 0.5);"></i>
+
+                <div class="dropdown" style="display: none;background-color: #0e628e;">
+                    <div class="dropdown-menu">
+                        <p>哆啦A梦</p><i class="fa fa-angle-right "></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <p>番剧</p>
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </li>
+            <li class="topnav-li">
+                <a href="../bangumi/etrieval.html">
+                    <i class="fa fa-filter "></i>
+                    <p>番剧索引</p>
+                </a>
+            </li>
+            <li class="topnav-li">
+                <a href="../manger/vue.html">
+                    <i class="fa fa-file-text-o"></i>
+                    <p>管理</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="search-m">
+    <form action="" method="post">
+        <input type="text" name="searchname" class="searchname" placeholder="Search...">
+        <button type="submit" class="submit">搜索</button>
+    </form>
+</div>
+<main class="container-fluid" style="flex: 1">
+    <div class="row">
+        <div class="col-12">
+            <div class="user-title">
+                <h2>登录</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="card">
+                    <div class="card-header">
+                        <a href="../../index.html">
+                            <img src="../../imgs/mikan-pic.png" alt="">
+                            <img src="../../imgs/mikan-text.png" alt="">
+                        </a>
+                    </div>
+
+                    <div class="card-body user-body">
+                        <form action="" method="post">
+                            <div class="form-group" style="margin-top: -20px;">
+                                <p style="color:red" id="err"></p>
+                            </div>
+                            <div class="form-group">
+                                <p>用户名</p>
+                                <input type="text" name="username" id="username" placeholder="请输入用户名">
+                            </div>
+                            <div class="form-group">
+                                <p>密码</p>
+                                <input type="password" name="password" id="password" placeholder="请输入密码">
+                            </div>
+                            <div class="form-group checkbox">
+                                <input type="checkbox" name="rember" id="rember" checked>
+                                <p class="rember-p">下次自动登录</p>
+                            </div>
+                            <div class="form-group">
+                                <a class="btn box-shadow btn-primary login" style="cursor: pointer">登录</a>
+                                <a href="register.html" class="btn box-shadow"
+                                   style="background-color: #39afd1;">注册</a>
+                                <a href="email.html" class="btn box-shadow"
+                                   style="background-color: #39afd1;">忘记密码</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- footer开始 -->
+<footer>
+    <div class="wrap">
+        <div class="footer-row">
+            <div class="">
+                <p>© 2022 <a href="https://paul.ren/" data-paul-state="">Dreamer-Paul</a>.</p>
+            </div>
+            <div class="">
+                <p>
+                    <a href="https://paul.ren/about" data-paul-state="">关于我</a> ·
+                    <a href="https://paul.ren/note/timeline" data-paul-state="">时间轴</a> ·
+                    <a href="https://paul.ren/join-group" target="_blank">加群讨论</a> ·
+                    <a href="https://paul.ren/feed" target="_blank">订阅日记</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer结束 -->
+
+
+<script src="../../js/other.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                username: null,
+            };
+        }
+    });
+</script>
+</body>
+
+</html>

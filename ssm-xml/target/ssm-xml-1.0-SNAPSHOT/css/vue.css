@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* cursor: url("../imgs/cur/Cursor_Normal_64.png"), pointer; */
+}
+html {
+  font-size: 16px;
+}
+html,
+body {
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1920px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
+}
+#app {
+  height: 100%;
+}
+.el-header,
+.el-footer {
+  background-color: #b3c0d1;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
+.el-aside {
+  width: auto !important;
+  text-align: center;
+  line-height: 200px;
+  background-color: #191a23;
+  text-align: left;
+}
+.el-aside .el-menu {
+  height: 100%;
+  background-color: #191a23;
+}
+.el-aside .el-menu .el-menu-item {
+  color: white;
+}
+.el-aside .el-menu .el-submenu > div {
+  color: white;
+}
+.el-aside .el-menu .el-menu-item:hover {
+  background-color: #1c2434;
+}
+.el-aside .el-menu .el-submenu > div:hover {
+  background-color: #1c2434;
+}
+.el-main {
+  background-color: #e9eef3;
+  color: #333;
+  text-align: center;
+  line-height: 160px;
+}
+body > .el-container {
+  margin-bottom: 40px;
+}
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
+}
+.el-container:nth-child(7) .el-aside {
+  line-height: 320px;
+}
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
+.el-container {
+  height: 100%;
+}

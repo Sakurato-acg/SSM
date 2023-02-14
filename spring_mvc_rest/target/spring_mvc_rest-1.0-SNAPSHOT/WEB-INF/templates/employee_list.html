@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>employee list</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<div id="app">
+    <table>
+        <tr>
+            <th colspan="5">employee list</th>
+        </tr>
+        <tr>
+            <th>id</th>
+            <th>lastName</th>
+            <th>email</th>
+            <th>gender</th>
+            <th>options（<a th:href="@{/to/add}">add</a>）</th>
+        </tr>
+        <tr th:each="employee : ${allEmployee}">
+            <tdth:text="${employee.id}"></td>
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.email}"></td>
+            <td th:text="${employee.gender}"></td>
+            <td>
+                <a @click="deleteEmployee()" th:href="@{'/employee/'+${employee.id}}">delete</a>
+                <a th:href="@{'/employee/'+${employee.id}}">update</a>
+            </td>
+        </tr>
+    </table>
+    <form method="post">
+        <input type="hidden" name="_method" value="delete">
+    </form>
+</div>
+
+<script type="text/javascript" th:src="@{/static/js/axios.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+`
+<script type="text/javascript">
+    var vue = new Vue({
+        el: "#app",
+        methods: {
+            deleteEmployee(val) {
+                console.log(val);
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/container-fluid.css">
+</head>
+
+<body>
+<header>
+    <div class="head">
+        <div class="head-logo">
+            <img src="../../imgs/mikan-pic.png" alt="">
+            <img src="../../imgs/mikan-text.png" alt="">
+        </div>
+        <span class="head-menu font">
+                </span>
+        <div class="search-pc">
+            <form action="" method="post">
+                <i class="fa fa-search"></i>
+                <input type="text" name="searchname" class="searchname" placeholder="Search...">
+                <button type="submit" class="submit">搜索</button>
+            </form>
+        </div>
+        <div class="loginBtn">
+            <div class="loginBtn_btn" style="display: block">
+                <button><a href="../user/login.html" style="color: white;">登录</a></button>
+            </div>
+            <div class="loginBtn_user" style="display: none">
+                <p></p>
+                <a style="margin-left: 10px;cursor: pointer">注销</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="topnav">
+        <ul class="topnav-ul">
+            <li class="topnav-li">
+                <a href="../../index.html" class="a-active">
+                    <i class="fa fa-home"></i>
+                    <p>首页</p>
+                </a>
+            </li>
+            <li class="topnav-li show-menu">
+                <a href="" class="topnav-li-a">
+                    <i class="fa fa-th"></i>
+                    <p>分类</p>
+                    <i class="fa fa-angle-double-down" style="margin-left: 1.25rem;"></i>
+                </a>
+                <div class="dropdown" style="display: none">
+                    <div class="dropdown-menu">
+                        <p>哆啦A梦</p><i class="fa fa-angle-right "></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <p>番剧</p>
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </li>
+            <li class="topnav-li">
+                <a href="etrieval.html">
+                    <i class="fa fa-filter "></i>
+                    <p>番剧索引</p>
+                </a>
+            </li>
+            <li class="topnav-li">
+                <a href="../manger/vue.html">
+                    <i class="fa fa-file-text-o"></i>
+                    <p>管理</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="search-m">
+    <form action="" method="post">
+        <input type="text" name="searchname" id="searchname" placeholder="Search...">
+        <button type="submit" id="submit">搜索</button>
+    </form>
+</div>
+<div class="container-fluid" id="app" style="flex: 1">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">高级索引</div>
+                <div class="card-body">
+                    <div class="mb-1">类型：
+                        <a class="btn btn-space btn-primary" @click="clickByCondition($event)" value="0">全部</a>
+                        <a rel="tag"
+                           class="btn btn-space" @click="clickByCondition($event)" value="1">番剧</a>
+                        <a rel="tag"
+                           class="btn btn-space" @click="clickByCondition($event)" value="2">剧场版</a>
+                        <a rel="tag"
+                           class="btn btn-space" @click="clickByCondition($event)" value="3">ova</a>
+                        <a rel="tag"
+                           class="btn btn-space" @click="clickByCondition($event)" value="4">长篇</a>
+                    </div>
+                    <div class="mb-1">时间：
+                        <a class="btn btn-space btn-primary" @click="clickByCondition($event)" value="0">全部</a>
+                        <a title="1月番" class="btn btn-space" @click="clickByCondition($event)" value="1">1月番</a>
+                        <a title="4月番" class="btn btn-space" @click="clickByCondition($event)" value="4">4月番</a>
+                        <a title="7月番" class="btn btn-space" @click="clickByCondition($event)" value="7">7月番</a>
+                        <a title="10月番" class="btn btn-space" @click="clickByCondition($event)" value="10">10月番</a>
+                    </div>
+                    <div class="mb-1">状态：
+                        <a class="btn btn-space btn-primary" @click="clickByCondition($event)" value="0">全部</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="1">看完</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2">没看</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="3">待定</a>
+                    </div>
+                    <div class="mb-1">年代：
+
+                        <a class="btn btn-space btn-primary" @click="clickByCondition($event)" value="0">全部</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2022">2022</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2021">2021</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2020">2020</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2019">2019</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2018">2018</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2017">2017</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2016">2016</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2015">2015</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2014">2014</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2013">2013</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2012">2012</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2011">2011</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2010">2010</a>
+                        <a class="btn btn-space" @click="clickByCondition($event)" value="2009">更早</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row  row-etrieval" style="margin-top: 2rem;">
+        <div class="col-4 col-s-3 col-m-2" v-for="(item,index) in data">
+            <a :href="'https://zh.moegirl.org.cn/'+item.name" class="clear">
+                <img :src="item.picture" alt="">
+                <p class=" title">{{item.name}}</p>
+                <!--                <div class="zhuangtai">连载</div>-->
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="pageBtn" v-if="currentPage==1">
+                <a class="next">
+                    <button type="button" class="btn box-shadow" @click="pageNext()">下一页</button>
+                </a>
+            </div>
+            <div class="pageBtn" v-else-if="currentPage>1">
+                <a class="pre">
+                    <button type="button" class="btn box-shadow" @click="pagePre()">上一页</button>
+                </a>
+                <a class="next">
+                    <button type="button" class="btn box-shadow" @click="pageNext()">下一页</button>
+                </a>
+            </div>
+            <p style="color: #6c757d;">{{currentPage}}/{{pageCount}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- footer开始 -->
+<footer>
+    <div class="wrap">
+        <div class="footer-row">
+            <div class="">
+                <p>© 2022 <a href="https://paul.ren/" data-paul-state="">Dreamer-Paul</a>.</p>
+            </div>
+            <div class="">
+                <p>
+                    <a href="https://paul.ren/about" data-paul-state="">关于我</a> ·
+                    <a href="https://paul.ren/note/timeline" data-paul-state="">时间轴</a> ·
+                    <a href="https://paul.ren/join-group" target="_blank">加群讨论</a> ·
+                    <a href="https://paul.ren/feed" target="_blank">订阅日记</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer结束 -->
+<script src="../../js/other.js"></script>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script src="../../js/axios-0.18.0.js"></script>
+<script src="../../js/element-ui/lib/index.js"></script>
+<link rel="stylesheet" href="../../js/element-ui/lib/theme-chalk/index.css">
+
+<script src="../../js/user/session.js"></script>
+<script>
+
+    // axios.defaults.baseURI="http://localhost/";
+
+
+    let cancel=null;
+
+    //1. 创建Vue核心对象
+
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                data: [],
+                bangumi: {
+                    type: null,
+                    time: null,
+                    status: null,
+                    year: null,
+                    userId:window.sessionStorage.getItem("id")
+                },
+                username: window.sessionStorage.getItem("username"),
+                currentPage: 1,
+                pageSize: 12,
+                total: 0,
+                pageCount: 0,
+            };
+        },
+        methods: {
+            show() {
+                // console.log("cancel1")
+                // console.log(cancel)
+                if (cancel!=null){
+                    cancel();
+                }
+                axios({
+                    method: "post",
+                    url: "/anime/subject",
+                    params: {
+                        "currentPage": this.currentPage,
+                        "pageSize": this.pageSize
+                    },
+                    data: this.bangumi,
+                    cancelToken: new axios.CancelToken(function (c) {
+                        cancel = c;
+                    })
+                }).then((resp)=> {
+                    setTimeout(function () {
+                        cancel = null;
+                    }, 10000)
+                    let pageInfo = resp.data;
+                    this.data = pageInfo.list;
+                    this.total = pageInfo.total;
+                    this.pageCount =pageInfo.pages;
+                    let number = pageInfo.list.length;
+                    if (number == 0) {
+                        console.log(pageInfo.list.length);
+                        this.$message({
+                            message: "无相关数据",
+                            type: "error"
+                        })
+                    }
+
+                })
+            },
+            clickByCondition(e) {
+                let target = e.currentTarget;
+                let parentNode = target.parentNode;
+                let childrenList = parentNode.children;
+                for (let i = 0; i < childrenList.length; i++) {
+                    childrenList[i].setAttribute("class", "btn btn-space")
+                }
+                target.setAttribute("class", "btn btn-space btn-primary")
+                let text = parentNode.innerText.slice(0, 2);
+                let value = target.getAttribute("value");
+
+                if(this.currentPage>1){
+                    this.currentPage=1;
+                }
+                this.setBangumi(text, value);
+            },
+            setBangumi(text, value) {
+                switch (text) {
+                    case"类型":
+                        this.bangumi.type = value;
+                        break;
+                    case"时间":
+                        this.bangumi.time = value;
+                        break;
+                    case "状态":
+                        this.bangumi.status = value;
+                        break;
+                    case "年代":
+                        this.bangumi.year = value;
+                        break;
+                }
+                this.show();
+            },
+            pageNext() {
+                this.currentPage++;
+                this.show();
+            },
+            pagePre() {
+                this.currentPage--;
+                this.show();
+            }
+        },
+        mounted() {
+            this.show();
+        }
+    });
+
+</script>
+</body>
+
+</html>

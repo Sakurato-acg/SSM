@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../font-awesome-4.7.0/css/font-awesome.css"/>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        .el-table .warning-row {
+            background: oldlace;
+        }
+
+        .el-table .success-row {
+            background: #f0f9eb;
+        }
+    </style>
+
+</head>
+
+
+<body>
+<header>
+    <div class="head">
+        <div class="head-logo">
+            <img src="../../imgs/mikan-pic.png" alt="">
+            <img src="../../imgs/mikan-text.png" alt="">
+        </div>
+        <span class="head-menu font">
+                </span>
+        <div class="search-pc">
+            <form action="" method="post">
+                <i class="fa fa-search"></i>
+                <input type="text" name="searchname" class="searchname" placeholder="Search...">
+                <button type="submit" class="submit">搜索</button>
+            </form>
+        </div>
+        <div class="loginBtn">
+            <div class="loginBtn_btn" style="display: block">
+                <button><a href="../user/login.html" style="color: white;">登录</a></button>
+            </div>
+            <div class="loginBtn_user" style="display: none">
+                <p></p>
+                <a style="margin-left: 10px;cursor: pointer">注销</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="topnav">
+        <ul class="topnav-ul">
+            <li class="topnav-li">
+                <a href="../../index.html" class="a-active">
+                    <i class="fa fa-home"></i>
+                    <p>首页</p>
+                </a>
+            </li>
+            <li class="topnav-li show-menu">
+                <a href="" class="topnav-li-a">
+                    <i class="fa fa-th"></i>
+                    <p>分类</p>
+                    <i class="fa fa-angle-double-down" style="margin-left: 1.25rem;"></i>
+                </a>
+                <div class="dropdown">
+                    <div class="dropdown-menu">
+                        <p>哆啦A梦</p><i class="fa fa-angle-right "></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <p>番剧</p>
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </li>
+            <li class="topnav-li">
+                <a href="../bangumi/etrieval.html">
+                    <i class="fa fa-filter "></i>
+                    <p>番剧索引</p>
+                </a>
+            </li>
+            <li class="topnav-li">
+                <a href="vue.html">
+                    <i class="fa fa-file-text-o"></i>
+                    <p>管理</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="search-m">
+    <form action="" method="post">
+        <input type="text" name="searchname" id="searchname" placeholder="Search...">
+        <button type="submit" id="submit">搜索</button>
+    </form>
+</div>
+<div id="app" style="height: 100%;">
+    <template>
+        <el-tabs type="border-card" style="height: 100%">
+            <el-tab-pane label="番剧管理">
+                <h3 style="margin-bottom: 30px">番剧管理</h3>
+                <el-form :inline="true" :model="bangumi" class="demo-form-inline">
+                    <el-form-item label="名字">
+                        <el-input v-model="bangumi.name" placeholder="番剧名"></el-input>
+                    </el-form-item>
+                    <el-form-item label="类型">
+                        <el-select v-model="bangumi.typeStr" placeholder="番剧类型">
+                            <el-option label="全部" value="全部"></el-option>
+                            <el-option label="番剧" value="番剧"></el-option>
+                            <el-option label="剧场版" value="剧场版"></el-option>
+                            <el-option label="ova" value="ova"></el-option>
+                            <el-option label="长篇" value="长篇"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="时间">
+                        <el-select v-model="bangumi.timeStr" placeholder="番剧时间">
+                            <el-option label="全部" value="全部"></el-option>
+                            <el-option label="1月番" value="1月番"></el-option>
+                            <el-option label="4月番" value="4月番"></el-option>
+                            <el-option label="7月番" value="7月番"></el-option>
+                            <el-option label="10月番" value="10月番"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="状态">
+                        <el-select v-model="bangumi.statusStr" placeholder="番剧状态">
+                            <el-option label="全部" value="全部"></el-option>
+                            <el-option label="看完" value="看完"></el-option>
+                            <el-option label="没看" value="没看"></el-option>
+                            <el-option label="待定" value="待定"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="年代">
+                        <el-select v-model="bangumi.year" placeholder="番剧年代">
+                            <el-option label="全部" value="0"></el-option>
+                            <el-option label="2022" value="2022"></el-option>
+                            <el-option label="2021" value="2021"></el-option>
+                            <el-option label="2020" value="2020"></el-option>
+                            <el-option label="2019" value="2019"></el-option>
+                            <el-option label="2018" value="2018"></el-option>
+                            <el-option label="2017" value="2017"></el-option>
+                            <el-option label="2016" value="2016"></el-option>
+                            <el-option label="2015" value="2015"></el-option>
+                            <el-option label="2014" value="2014"></el-option>
+                            <el-option label="2013" value="2013"></el-option>
+                            <el-option label="2012" value="2012"></el-option>
+                            <el-option label="2011" value="2011"></el-option>
+                            <el-option label="2010" value="2010"></el-option>
+                            <el-option label="更早" value="2009"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="onSubmit">查询</el-button>
+                    </el-form-item>
+                </el-form>
+                <!--按钮-->
+                <el-row>
+                    <el-button type="danger" plain @click="deleteByIds">批量删除</el-button>
+                    <el-button type="primary" plain @click="dialogVisible = true">新增</el-button>
+                </el-row>
+                <!--添加数据对话框表单-->
+                <el-dialog
+                        title="编辑品牌"
+                        :visible.sync="dialogVisible"
+                        width="50%"
+                        center
+                >
+                    <el-form ref="form" :model="updateData" label-width="70px" center>
+
+                        <el-form-item label="番剧类型">
+                            <el-select v-model="updateData.typeStr" label="updateData.typeStr" placeholder="番剧类型">
+                                <el-option label="全部" value="全部"></el-option>
+                                <el-option label="番剧" value="番剧"></el-option>
+                                <el-option label="剧场版" value="剧场版"></el-option>
+                                <el-option label="ova" value="ova"></el-option>
+                                <el-option label="长篇" value="长篇"></el-option>
+                            </el-select>
+                        </el-form-item>
+
+                        <el-form-item label="番剧时间">
+                            <el-select v-model="updateData.timeStr" placeholder="番剧时间">
+                                <el-option label="全部" value="全部"></el-option>
+                                <el-option label="1月番" value="1月番"></el-option>
+                                <el-option label="4月番" value="4月番"></el-option>
+                                <el-option label="7月番" value="7月番"></el-option>
+                                <el-option label="10月番" value="10月番"></el-option>
+                            </el-select>
+                        </el-form-item>
+
+                        <el-form-item label="番剧状态">
+                            <el-select v-model="updateData.statusStr" placeholder="番剧状态">
+                                <el-option label="全部" value="全部"></el-option>
+                                <el-option label="看完" value="看完"></el-option>
+                                <el-option label="没看" value="没看"></el-option>
+                                <el-option label="待定" value="待定"></el-option>
+                            </el-select>
+                        </el-form-item>
+
+                        <el-form-item label="番剧年代">
+                            <el-select v-model="updateData.year" placeholder="番剧年代">
+                                <el-option label="全部" value="0"></el-option>
+                                <el-option label="2022" value="2022"></el-option>
+                                <el-option label="2021" value="2021"></el-option>
+                                <el-option label="2020" value="2020"></el-option>
+                                <el-option label="2019" value="2019"></el-option>
+                                <el-option label="2018" value="2018"></el-option>
+                                <el-option label="2017" value="2017"></el-option>
+                                <el-option label="2016" value="2016"></el-option>
+                                <el-option label="2015" value="2015"></el-option>
+                                <el-option label="2014" value="2014"></el-option>
+                                <el-option label="2013" value="2013"></el-option>
+                                <el-option label="2012" value="2012"></el-option>
+                                <el-option label="2011" value="2011"></el-option>
+                                <el-option label="2010" value="2010"></el-option>
+                                <el-option label="更早" value="2009"></el-option>
+                            </el-select>
+                        </el-form-item>
+                        <el-form-item label="番剧名字">
+                            <el-input v-model="updateData.name" style="width: 70% ;float: left"></el-input>
+                            <a class="btn btn-primary" style="width: 18%;margin-left: 5%" @click="getPictureByName()">获取封面图片</a>
+                        </el-form-item>
+                        <el-form-item label="番剧封面">
+                            <p style="width: 80%;text-align: center;">{{picture_title}}</p>
+                            <img :src="updateData.picture" alt=""
+                                 style="width: 80%; height: 300px; object-fit: contain">
+                        </el-form-item>
+
+                        <el-form-item style="float: right">
+                            <el-button @click="cancel()">取消</el-button>
+                            <el-button type="primary" @click="addBangumi()">提交</el-button>
+                        </el-form-item>
+                    </el-form>
+
+                </el-dialog>
+                <!-- 表格-->
+                <template>
+                    <el-table
+                            :data="tableData"
+                            style="width: 100%"
+                            :row-class-name="tableRowClassName"
+                            @selection-change="handleSelectionChange"
+                            :default-sort="{prop:'date',order:'descending'}"
+                    >
+                        <el-table-column
+                                type="selection"
+                                width="55">
+                        </el-table-column>
+                        <el-table-column
+                                type="index"
+                                :index="indexMethod"
+                                width="50"
+                        >
+                        </el-table-column>
+                        <el-table-column
+                                prop="name"
+                                label="名字"
+                                sortable
+                                width="150"
+                        >
+                        </el-table-column>
+                        <el-table-column
+                                prop="typeStr"
+                                label="类型"
+                                width="150"
+                        >
+                        </el-table-column>
+                        <el-table-column
+                                prop="timeStr"
+                                label="时间"
+                                sortable
+                                :sort-method="sortByTime"
+                                width="150"
+                        >
+                        </el-table-column>
+                        <el-table-column
+                                prop="statusStr"
+                                label="状态"
+                                width="150"
+                        >
+                        </el-table-column>
+                        <el-table-column
+                                prop="year"
+                                label="年代"
+                                sortable
+                                width="100"
+                        >
+                        </el-table-column>
+                        <el-table-column
+                                prop="picture"
+                                label="封面"
+                                align="center"
+                                min-width
+                        >
+                            <template slot-scope="scope">
+                                <img :src="scope.row.picture" alt="" width="100%" height="260px"
+                                     style="object-fit: contain">
+                            </template>
+                        </el-table-column>
+
+                        <el-table-column
+                                align="center"
+                                label="操作"
+                                width="200"
+                        >
+                            <el-row slot-scope="scope">
+                                <el-button type="primary" @click="update(scope.row)">修改</el-button>
+                                <el-button type="danger" @click="deleteSingle(scope.row.id)">删除</el-button>
+                            </el-row>
+
+                        </el-table-column>
+                    </el-table>
+                </template>
+                <!--分页工具条-->
+                <el-pagination
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="currentPage"
+                        :page-sizes="[5, 10, 15, 20]"
+                        :page-size="pageSize"
+                        layout="total, sizes, prev, pager, next, jumper"
+                        :total="total">
+                </el-pagination>
+            </el-tab-pane>
+            <el-tab-pane label="配置管理">配置管理</el-tab-pane>
+            <el-tab-pane label="角色管理">角色管理</el-tab-pane>
+            <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+        </el-tabs>
+    </template>
+</div>
+<script src="../../js/other.js"></script>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script src="../../js/axios-0.18.0.js"></script>
+<script src="../../js/element-ui/lib/index.js"></script>
+<link rel="stylesheet" href="../../js/element-ui/lib/theme-chalk/index.css">
+<script src="../../js/user/session.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                //session
+                username: window.sessionStorage.getItem("username"),
+                dialogVisible: false,
+                //总页数
+                total: 40,
+                // 当前每页数据条数
+                pageSize: 20,
+                // 当前页码
+                currentPage: 1,
+                bangumi: {
+                    id: undefined,
+                    name: null,
+                    type: null,
+                    typeStr: null,
+                    time: null,
+                    timeStr: null,
+                    status: null,
+                    statusStr: null,
+                    year: null,
+                    picture: null,
+                    userId: window.sessionStorage.getItem("id")
+                },
+                updateData: {
+                    id: undefined,
+                    name: null,
+                    type: null,
+                    typeStr: null,
+                    time: null,
+                    timeStr: null,
+                    status: null,
+                    statusStr: null,
+                    year: null,
+                    picture: null,
+                    userId: window.sessionStorage.getItem("id")
+                },
+                tableData: [],
+                methods: "add",
+                multipleSelection: [],
+                //被选中的id数组
+                selectedIds: [],
+                getPictureCount: 0,
+                picture_title: ''
+            }
+        },
+        methods: {
+            getPictureByName() {
+                this.getPictureCount++;
+                axios({
+                    method: "post",
+                    url: "https://api.bgm.tv/search/subject/" + this.updateData.name
+                }).then((resp)=> {
+                    let data = resp.data;
+                    if (this.getPictureCount >= data.list.length) {
+                        this.getPictureCount = 0;
+                    }
+                    let list = data.list[this.getPictureCount];
+                    let large = list.images.large;
+                    this.updateData.picture = large;
+                    axios({
+                        method: "post",
+                        url: "https://api.bgm.tv/subject/" + list.id + "?responseGroup=simple"
+                    }).then((resp)=> {
+                        let api_info = resp.data;
+                        // console.log(api_info)
+                        this.setByApi(api_info);
+                    })
+
+
+                })
+            },
+            setByApi(data) {
+                this.picture_title = data.name_cn !== '' ? data.name_cn : data.name;
+                let air_date = data.air_date;
+                let split = air_date.split("-");
+                let year = Number(split[0]);
+                this.updateData.year = year;
+                let month = Number(split[1]);
+                if (month >= 1 && month < 4) {
+                    this.updateData.timeStr = "1月番";
+                } else if (month >= 4 && month < 7) {
+                    this.updateData.timeStr = "4月番";
+                } else if (month >= 7 && month < 10) {
+                    this.updateData.timeStr = "7月番";
+                }
+                if (month >= 10 && month <= 12) {
+                    this.updateData.timeStr = "10月番";
+                }
+            },
+            changeBangumi(data) {
+                switch (data.typeStr) {
+                    case "全部":
+                        data.type = 0;
+                        break;
+                    case "番剧":
+                        data.type = 1;
+                        break;
+                    case "剧场版":
+                        data.type = 2;
+                        break;
+                    case "ova":
+                        data.type = 3;
+                        break;
+                    case "长篇":
+                        data.type = 4;
+                        break;
+                }
+                switch (data.timeStr) {
+                    case "全部":
+                        data.time = 0;
+                        break;
+                    case "1月番":
+                        data.time = 1;
+                        break;
+                    case "4月番":
+                        data.time = 4;
+                        break;
+                    case "7月番":
+                        data.time = 7;
+                        break;
+                    case "10月番":
+                        data.time = 10;
+                        break;
+                }
+                switch (data.statusStr) {
+                    case "全部":
+                        data.status = 0;
+                        break;
+                    case "看完":
+                        data.status = 1;
+                        break;
+                    case "没看":
+                        data.status = 2;
+                        break;
+                    case "待定":
+                        data.status = 3;
+                        break;
+                }
+            },
+            onSubmit() {
+                this.changeBangumi(this.bangumi);
+                this.show();
+            },
+            show() {
+                axios({
+                    method: "post",
+                    url: "/anime/subject",
+                    params: {
+                        "currentPage": this.currentPage,
+                        "pageSize": this.pageSize
+                    },
+                    data: this.bangumi
+                }).then((resp) => {
+                    console.log(resp);
+                    let pageInfo = resp.data;
+                    this.tableData = pageInfo.list;
+                    console.log(this.tableData);
+                    this.total = pageInfo.total;
+
+                    if (pageInfo.list.length === 0) {
+                        this.$message({
+                            message: "无相关数据,请先添加要收藏的番剧",
+                            type: "error"
+                        })
+                    }
+                })
+            },
+            addBangumi() {
+                // if (this.methods === "add") {
+                //     this.reSetForm();
+                // }
+                this.changeBangumi(this.updateData);
+                console.log("add之前");
+                console.log(this.updateData);
+                if (this.picture_title != "") {
+                    this.updateData.name = this.picture_title;
+                }
+                axios({
+                    method: "put",
+                    url: "/anime/subject/" + this.methods,
+                    data: this.updateData
+                }).then((resp) => {
+                    this.dialogVisible = false;
+                    this.methods = "add";
+                    if (resp.data === true) {
+                        this.$message({
+                            message: "添加成功",
+                            type: "success"
+                        });
+                        this.currentPage = 1;
+                        this.bangumi = this.updateData;
+                        this.show();
+                    } else if (resp.data === false && resp.data !== "") {
+                        this.$message({
+                            message: "该条目已存在",
+                            type: "error"
+                        })
+                    }
+                })
+            },
+            update(row) {
+                // console.log(this.tableData)
+                this.updateData = row;
+                this.changeBangumi(this.updateData);
+                // console.log(this.bangumi);
+                // this.bangumi.picture = this.bangumi.picture.slice(30);
+                this.methods = "update"
+                this.dialogVisible = true;
+            },
+            deleteByIds() {
+                let _this = this;
+                this.$confirm("此操作将批量删除，是否继续", "提示", {
+                    confirmButtonText: "确定",
+                    cancelButtonText: "取消",
+                    type: "warning"
+                }).then(() => {
+                    axios({
+                        method: "delete",
+                        url: "/anime/subject",
+                        params: {
+                            "userId": this.bangumi.userId,
+                        },
+                        data: _this.selectedIds
+                    }).then(function (resp) {
+                        if (resp.data === true) {
+                            _this.show();
+                            _this.$message({
+                                message: '恭喜你，批量删除成功',
+                                type: 'success'
+                            });
+                        }
+                    })
+                }).catch(() => {
+                    this.$message({
+                        type: "info",
+                        message: "已取消删除"
+                    })
+                })
+
+
+            },
+            deleteSingle(id) {
+                axios({
+                    method: "delete",
+                    url: "/anime/subject/" + id,
+                    params: {
+                        "userId": this.bangumi.userId,
+                    }
+                }).then((resp) => {
+                    alert(resp.data);
+                    this.bangumi = {};
+                    this.show();
+                })
+            },
+            tableRowClassName({row, rowIndex}) {
+                if ((rowIndex - 1) % 4 === 0) {
+                    return 'warning-row';
+                } else if ((rowIndex + 1) % 4 === 0) {
+                    return 'success-row';
+                }
+                return '';
+            },
+            // 复选框选中后执行的方法
+            handleSelectionChange(val) {
+                this.multipleSelection = val;
+                for (let i = 0; i < this.multipleSelection.length; i++) {
+                    let selectionElement = this.multipleSelection[i];
+                    this.selectedIds[i] = selectionElement.id;
+                }
+            },
+            indexMethod(index) {
+                return index += (this.currentPage - 1) * this.pageSize + 1;
+            },
+            //分页
+            handleSizeChange(val) {
+                this.pageSize = val;
+                this.show();
+            },
+            handleCurrentChange(val) {
+                this.currentPage = val;
+                this.show();
+            },
+            cancel() {
+                this.dialogVisible = false;
+                this.updateData = [];
+                this.methods="add";
+            },
+            sortByTime(ojb1, obj2) {
+                return this.getTimeNumber(obj2) - this.getTimeNumber(ojb1);
+            },
+            getTimeNumber(str) {
+                switch (str) {
+                    case "全部":
+                        return 0;
+                    case "1月番":
+                        return 1;
+                    case "4月番":
+                        return 4;
+                    case "7月番":
+                        return 7;
+                    case "10月番":
+                        return 10;
+                }
+            },
+            reSetForm() {
+                this.updateData = {
+                    id: undefined,
+                    name: null,
+                    type: null,
+                    typeStr: null,
+                    time: null,
+                    timeStr: null,
+                    status: null,
+                    statusStr: null,
+                    year: null,
+                    picture: null,
+                    userId: window.sessionStorage.getItem("id")
+                }
+            },
+            formatter(row, column) {
+                return row.address;
+            }
+        },
+        mounted() {
+            this.show();
+        }
+    })
+
+</script>
+</body>
+
+</html>

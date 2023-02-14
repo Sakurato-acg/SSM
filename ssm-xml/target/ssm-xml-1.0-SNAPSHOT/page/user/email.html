@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../../font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/container-fluid.css">
+</head>
+
+<body>
+<div class="container-fluid" id="app" style="margin: auto;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5" style="margin: auto">
+                <div class="card">
+                    <div class="card-body user-body">
+                        <h3 style="text-align: center">邮箱地址</h3>
+                        <form method="post">
+                            <div class="form-group">
+                                <input type="text" name="email" id="email">
+                                <p style="text-align: center">请输入您注册时的邮箱地址</p>
+                            </div>
+                            <div class="form-group">
+                                <a class="btn box-shadow btn-primary submit" style="width: 100%;margin: 0 auto;"
+                                   @click="checkEmail()">提交</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script src="../../js/axios-0.18.0.js"></script>
+<script src="../../js/element-ui/lib/index.js"></script>
+<link rel="stylesheet" href="../../js/element-ui/lib/theme-chalk/index.css">
+<script>
+    new Vue({
+        el: "#app",
+        methods: {
+            checkEmail() {
+                let _this = this;
+                let email = $("#email").val();
+                axios({
+                    method: "get",
+                    url: "/anime/user/account",
+                    params:{
+                        "email": email
+                    }
+                }).then(function (resp) {
+                    let data = resp.data;
+
+                    if (data == false) {
+                        _this.$message({
+                            message: "用户不存在",
+                            type: "error"
+                        })
+                    } else if (data == "success") {
+                        _this.$message({
+                            message: "用户存在",
+                            type: 'success'
+                        })
+                        setInterval(function () {
+                            location.href = "reset.html";
+                        }, 1000);
+
+                    }
+                })
+
+            }
+        }
+    });
+</script>
+</body>
+
+</html>

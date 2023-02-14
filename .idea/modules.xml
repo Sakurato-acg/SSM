@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Mybatis/Mybatis.iml" filepath="$PROJECT_DIR$/Mybatis/Mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSM.iml" filepath="$PROJECT_DIR$/SSM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSM-annotation/SSM-annotation.iml" filepath="$PROJECT_DIR$/SSM-annotation/SSM-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring-XML/Spring-XML.iml" filepath="$PROJECT_DIR$/Spring-XML/Spring-XML.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring-annotation/Spring-annotation.iml" filepath="$PROJECT_DIR$/Spring-annotation/Spring-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_mbg/mybatis_mbg.iml" filepath="$PROJECT_DIR$/mybatis_mbg/mybatis_mbg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring-aop/spring-aop.iml" filepath="$PROJECT_DIR$/Spring-aop/spring-aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-transaction/spring-transaction.iml" filepath="$PROJECT_DIR$/spring-transaction/spring-transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_listener/spring_listener.iml" filepath="$PROJECT_DIR$/spring_listener/spring_listener.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_ajax/spring_mvc_ajax.iml" filepath="$PROJECT_DIR$/spring_mvc_ajax/spring_mvc_ajax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_annotation/spring_mvc_annotation.iml" filepath="$PROJECT_DIR$/spring_mvc_annotation/spring_mvc_annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_demo/spring_mvc_demo.iml" filepath="$PROJECT_DIR$/spring_mvc_demo/spring_mvc_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_extension/spring_mvc_extension.iml" filepath="$PROJECT_DIR$/spring_mvc_extension/spring_mvc_extension.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_rest/spring_mvc_rest.iml" filepath="$PROJECT_DIR$/spring_mvc_rest/spring_mvc_rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssm-xml/ssm-xml.iml" filepath="$PROJECT_DIR$/ssm-xml/ssm-xml.iml" />
+    </modules>
+  </component>
+</project>

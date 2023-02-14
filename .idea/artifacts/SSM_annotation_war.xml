@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SSM-annotation:war">
+    <output-path>$PROJECT_DIR$/SSM-annotation/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>SSM-annotation</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="SSM-annotation-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="SSM-annotation:war exploded" />
+    </root>
+  </artifact>
+</component>

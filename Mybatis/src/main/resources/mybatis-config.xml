@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-com.atguigu.config.dtd">
+<configuration>
+    <!--类型别名 对应Mapper.xml的resultType-->
+    <typeAliases>
+        <package name="com.atguigu.mybatis.pojo"/>
+    </typeAliases>
+
+    <plugins>
+        <!--设置分页插件-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+    <!--
+    environments：配置数据库连接环境信息。可以配置多个environment，通过default属性切换不同的environment
+    -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!--数据库连接信息-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/anime_library?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC&amp;rewriteBatchedStatements=true"/>
+                <property name="username" value="2120400146"/>
+                <property name="password" value="210019"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+
+    <mappers>
+        <package name="com.atguigu.mybatis.mapper"/>
+    </mappers>
+
+
+</configuration>
